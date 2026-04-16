@@ -3,7 +3,17 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
+function normalizeBasePath(basePath?: string) {
+  if (!basePath || basePath === '/') {
+    return '/'
+  }
+
+  const withLeadingSlash = basePath.startsWith('/') ? basePath : `/${basePath}`
+  return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`
+}
+
 export default defineConfig({
+  base: normalizeBasePath(process.env.BUILD_BASE_PATH),
   plugins: [
     // The React and Tailwind plugins are both required for Make, even if
     // Tailwind is not being actively used – do not remove them

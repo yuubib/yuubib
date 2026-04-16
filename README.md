@@ -1,11 +1,27 @@
 
-  # VR Metaverse Wireframe Kit
+# Yuubib GitHub Pages Web
 
-  This is a code bundle for VR Metaverse Wireframe Kit. The original project is available at https://www.figma.com/design/OnW54xgAL1pZtsIkE2Y4Mi/VR-Metaverse-Wireframe-Kit.
+This project is now configured as a Vite + React single-page app that can be deployed to GitHub Pages from the repository `https://github.com/yuubib/yuubib.git`.
 
-  ## Running the code
+The site target URL is:
 
-  Run `npm i` to install the dependencies.
+`https://yuubib.github.io/yuubib/`
 
-  Run `npm run dev` to start the development server.
+## Local development
+
+Run `npm i` to install dependencies.
+
+Run `npm run dev` to start the development server.
+
+## Build for GitHub Pages
+
+Run `npm run build:pages` to generate a production build with the `/yuubib/` base path.
+
+## Automatic deployment
+
+A GitHub Actions workflow is included at `.github/workflows/deploy.yml`.
+
+Push to the `main` branch and GitHub will build and publish the `dist/` output to GitHub Pages.
+
+If this is the first deployment for the repository, make sure Pages is enabled in the repository settings and the build source is set to `GitHub Actions`.
   

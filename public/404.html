@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var pathSegments = window.location.pathname.split("/").filter(Boolean);
+        var repoName = pathSegments.shift() || "";
+        var routePath = "/" + pathSegments.join("/");
+
+        if (routePath === "/404.html") {
+          routePath = "/";
+        }
+
+        var basePath = repoName ? "/" + repoName + "/" : "/";
+        var redirectPath = routePath + window.location.search + window.location.hash;
+
+        window.location.replace(basePath + "?p=" + encodeURIComponent(redirectPath));
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

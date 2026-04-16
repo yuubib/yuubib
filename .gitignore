@@ -220,10 +220,5 @@ GaussianAnything/
 logs/
 models/
 
-# Temporary root demo files
-/index.html
-/package.json
-/package-lock.json
-
 asset/
 backend/storage/

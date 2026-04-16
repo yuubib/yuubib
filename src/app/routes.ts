@@ -5,25 +5,30 @@ import { VirtualOfficeLobby } from "./components/wireframe-screens/VirtualOffice
 import { SocialHub } from "./components/wireframe-screens/SocialHub";
 import { CompanyHistoryBoard } from "./components/wireframe-screens/CompanyHistoryBoard";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      Component: ScreenSelector,
+    },
+    {
+      path: "/onboarding",
+      Component: OnboardingLogin,
+    },
+    {
+      path: "/lobby",
+      Component: VirtualOfficeLobby,
+    },
+    {
+      path: "/social",
+      Component: SocialHub,
+    },
+    {
+      path: "/history",
+      Component: CompanyHistoryBoard,
+    },
+  ],
   {
-    path: "/",
-    Component: ScreenSelector,
-  },
-  {
-    path: "/onboarding",
-    Component: OnboardingLogin,
-  },
-  {
-    path: "/lobby",
-    Component: VirtualOfficeLobby,
-  },
-  {
-    path: "/social",
-    Component: SocialHub,
-  },
-  {
-    path: "/history",
-    Component: CompanyHistoryBoard,
-  },
-]);
+    basename: import.meta.env.BASE_URL,
+  }
+);
