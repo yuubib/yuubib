@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PAGES_ENABLEMENT_TOKEN: ${{ secrets.PAGES_ENABLEMENT_TOKEN }}
 
     steps:
       - name: Checkout repository
@@ -30,7 +32,15 @@ jobs:
           cache: npm
 
       - name: Configure GitHub Pages
+        if: ${{ env.PAGES_ENABLEMENT_TOKEN == '' }}
         uses: actions/configure-pages@v5
+
+      - name: Configure GitHub Pages and enable site
+        if: ${{ env.PAGES_ENABLEMENT_TOKEN != '' }}
+        uses: actions/configure-pages@v5
+        with:
+          token: ${{ env.PAGES_ENABLEMENT_TOKEN }}
+          enablement: true
 
       - name: Install dependencies
         run: npm ci

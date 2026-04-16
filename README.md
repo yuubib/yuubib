@@ -23,5 +23,7 @@ A GitHub Actions workflow is included at `.github/workflows/deploy.yml`.
 
 Push to the `main` branch and GitHub will build and publish the `dist/` output to GitHub Pages.
 
-If this is the first deployment for the repository, make sure Pages is enabled in the repository settings and the build source is set to `GitHub Actions`.
+If this is the first deployment for the repository, open `Settings -> Pages`, enable Pages, and set the build source to `GitHub Actions`.
+
+If you want the workflow to try enabling Pages automatically on the first run, create a repository secret named `PAGES_ENABLEMENT_TOKEN` and store a Personal Access Token that can administer the repository and write Pages settings.
   
